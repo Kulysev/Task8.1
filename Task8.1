@@ -1,0 +1,41 @@
+#include <iostream> //1
+
+struct Rectangle {
+    int x;  
+    int y;
+    int width;  
+    int height; 
+};
+
+void moveRectangle(Rectangle rect, int dx, int dy) {
+    rect.x += dx; 
+    rect.y += dy; 
+    std::cout << "Rectangle moved to (" << rect.x << ", " << rect.y << ")" << std::endl;
+}
+
+void resizeRectangle(Rectangle& rect, int newWidth, int newHeight) {
+    rect.width = newWidth;   
+    rect.height = newHeight; 
+}
+
+void printRectangle(Rectangle rect) {
+    std::cout << "Rectangle at (" << rect.x << ", " << rect.y << ") with width " << rect.width << " and height " << rect.height << std::endl;
+}
+
+int main() {
+    Rectangle rect; 
+    rect.x = 0;    
+    rect.y = 0;    
+    rect.width = 10;  
+    rect.height = 5;  
+
+    printRectangle(rect); 
+
+    moveRectangle(rect, 5, 5); 
+    printRectangle(rect); 
+
+    resizeRectangle(rect, 20, 10); 
+    printRectangle(rect); 
+
+    return 0;
+}
